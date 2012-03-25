@@ -34,6 +34,7 @@ public class IMCActivity extends Activity {
 				//calculo do IMC
 				resultadoFloat = pesoFloat / (alturaFloat * alturaFloat);
 				
+								
 				//metodo set, para setar o valor que estar em float na String
 				
 				etResultado.setText(String.valueOf(resultadoFloat));
