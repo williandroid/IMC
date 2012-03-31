@@ -63,7 +63,7 @@ public class IMCActivity extends Activity {
 				
 				else if (resultadoFloat >= 35  && resultadoFloat <= 39.9)
 				{
-					tvCondicao.setText("Obesidade Grau 2!");
+					tvCondicao.setText("Obesidade Grau 2.!");
 				}
 				
 				else if (resultadoFloat > 40)
