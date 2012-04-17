@@ -45,6 +45,7 @@
         android:id="@+calculo/btCalculo"
         android:layout_width="102dp"
         android:layout_height="wrap_content"
+        android:onClick="Calcular"
         android:text="Calcular" />
         
    <TextView

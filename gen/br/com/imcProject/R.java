@@ -20,8 +20,15 @@ public final class R {
         public static final int altura=0x7f050001;
         public static final int peso=0x7f050000;
     }
+    public static final class id {
+        public static final int tvAltura=0x7f090001;
+        public static final int tvCondicao=0x7f090003;
+        public static final int tvPeso=0x7f090000;
+        public static final int tvResultado=0x7f090002;
+    }
     public static final class layout {
         public static final int main=0x7f030000;
+        public static final int valores=0x7f030001;
     }
     public static final class saida {
         public static final int resultado=0x7f070000;

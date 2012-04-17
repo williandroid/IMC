@@ -1,6 +1,7 @@
 package br.com.imcProject;
 
 public class Resultado {
+	
 	private String autor;
 	private String data;
 	private Float peso;

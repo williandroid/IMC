@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 
 public class IMCActivity extends Activity {
@@ -20,9 +21,11 @@ public class IMCActivity extends Activity {
 	String texto;
 	Button btCalcular;
 	
+	
     @Override
     
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
@@ -31,17 +34,25 @@ public class IMCActivity extends Activity {
         etPeso = (EditText) findViewById(R.entrada.peso);
         etAltura = (EditText) findViewById(R.entrada.altura);
         etResultado = (EditText) findViewById(R.saida.resultado);
-        btCalcular = (Button) findViewById(R.calculo.btCalculo);
-        
-        btCalcular.setOnClickListener(new View.OnClickListener() {
-			
-			public void onClick(View arg0) {
+    }
+    public void Calcular(View v)
+    {
+				
+
+				
 				//Ligação do float com a String do form
 				pesoFloat = Float.parseFloat(etPeso.getText().toString());
 				alturaFloat = Float.parseFloat(etAltura.getText().toString());
 				
 				//calculo do IMC
 				resultadoFloat = pesoFloat / (alturaFloat * alturaFloat);
+				
+				
+				Intent a = new Intent(this, Valores.class);
+				a.putExtra("atributoPeso", pesoFloat);
+				a.putExtra("atributoAltura", alturaFloat);
+				a.putExtra("atributoIMC", resultadoFloat);
+			    startActivity(a);
 				
 				//condições
 				if (resultadoFloat < 18.5)
@@ -83,9 +94,7 @@ public class IMCActivity extends Activity {
 							
 				
 			}
-		});
 
 
 
-    }
-}
+ }
