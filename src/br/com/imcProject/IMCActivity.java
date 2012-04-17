@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import android.database.sqlite.SQLiteDatabase;
+
 public class IMCActivity extends Activity {
 	
 	//variaveis
@@ -17,6 +19,7 @@ public class IMCActivity extends Activity {
 	float pesoFloat, alturaFloat, resultadoFloat;
 	String texto;
 	Button btCalcular;
+	
     @Override
     
     public void onCreate(Bundle savedInstanceState) {
