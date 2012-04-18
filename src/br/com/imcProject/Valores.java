@@ -24,6 +24,7 @@ public class Valores extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.valores);
         
+        //puxando a activity a
         Intent a = getIntent();
         
         //Puxando os valores da classe pai

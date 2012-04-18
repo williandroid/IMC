@@ -22,7 +22,7 @@ public class IMCActivity extends Activity {
 	float pesoFloat, alturaFloat, resultadoFloat;
 	String texto;
 	Button btCalcular;
-
+	
 	Intent a = new Intent();
 	
     @Override
@@ -40,17 +40,14 @@ public class IMCActivity extends Activity {
         a.setClass(this, Valores.class);
     }
     public void Calcular(View v)
-    {
-				
-
+    {			
 				
 				//Ligação do float com a String do form
 				pesoFloat = Float.parseFloat(etPeso.getText().toString());
 				alturaFloat = Float.parseFloat(etAltura.getText().toString());	
 				
 				//calculo do IMC
-				resultadoFloat = pesoFloat / (alturaFloat * alturaFloat);	
-				
+				resultadoFloat = pesoFloat / (alturaFloat * alturaFloat);					
 				
 				String pesoParam = etPeso.getText().toString();
 				String alturaParam = etAltura.getText().toString();				
@@ -59,54 +56,13 @@ public class IMCActivity extends Activity {
 				etResultado.setText(String.valueOf(resultadoFloat));
 				
 				//conversão dos campos TextView para String
-				String resultadoParam = etResultado.getText().toString();
-						
+				String resultadoParam = etResultado.getText().toString();						
 				
 				a.putExtra("atributoPeso", pesoParam);
 				a.putExtra("atributoAltura", alturaParam);
 				a.putExtra("atributoIMC", resultadoParam);
 				
 			    startActivity(a);
-				
-
-				
-				/* //condições
-				if (resultadoFloat < 18.5)
-				{
-					tvCondicao.setText("Você esta Abaixo do peso!");
-				}
-				
-				else if (resultadoFloat >= 18.5 && resultadoFloat <= 24.9)
-				{
-					tvCondicao.setText("Parabéns Peso Normal!");
-				}
-				
-				else if (resultadoFloat >= 25  && resultadoFloat <= 29.9)
-				{
-					tvCondicao.setText("Acima do Peso (SobrePeso)!");
-				}
-				
-				else if (resultadoFloat >= 30  && resultadoFloat <= 34.9)
-				{
-					tvCondicao.setText("Obesidade Grau 1!");
-				}
-				
-				else if (resultadoFloat >= 35  && resultadoFloat <= 39.9)
-				{
-					tvCondicao.setText("Obesidade Grau 2.!");
-				}
-				
-				else if (resultadoFloat > 40)
-				{
-					tvCondicao.setText("Obesidade Grau 3!");
-				}
-				
-				else 
-				{
-					tvCondicao.setText("Erro, entre com um valor!");
-				} */
-				
-
 				
 				
 			}
