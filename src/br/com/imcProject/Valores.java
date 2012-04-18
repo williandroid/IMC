@@ -10,8 +10,6 @@ public class Valores extends Activity
 {
 
 	
-	
-	
     public void onCreate(Bundle savedInstanceState) 
     {
      	
@@ -21,15 +19,21 @@ public class Valores extends Activity
         Intent a = getIntent();
     	String peso = a.getStringExtra("atributoPeso");
     	String altura = a.getStringExtra("atributoAltura");
-    	String imc = a.getStringExtra("resultadoIMC");
+    	String imc = a.getStringExtra("atributoIMC");
         
         //tvCondicao = (TextView) findViewById(R.texto.condicao);
         TextView tvPeso = (TextView) findViewById(R.id.tvPeso);
         TextView tvAltura = (TextView) findViewById(R.id.tvAltura);
         TextView tvResultado = (TextView) findViewById(R.id.tvResultado);
         
+        
         tvPeso.setText(peso);
         tvAltura.setText(altura);
         tvResultado.setText(imc);
+        
+        tvAltura.setText("Altura: " + altura);
+        tvPeso.setText("Peso: " + peso);
+        tvResultado.setText("IMC: " + imc);
     }
+    
 }

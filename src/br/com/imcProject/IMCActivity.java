@@ -21,6 +21,8 @@ public class IMCActivity extends Activity {
 	String texto;
 	Button btCalcular;
 	
+
+	Intent a = new Intent();
 	
     @Override
     
@@ -34,6 +36,7 @@ public class IMCActivity extends Activity {
         etPeso = (EditText) findViewById(R.entrada.peso);
         etAltura = (EditText) findViewById(R.entrada.altura);
         etResultado = (EditText) findViewById(R.saida.resultado);
+        a.setClass(this, Valores.class);
     }
     public void Calcular(View v)
     {
@@ -42,19 +45,31 @@ public class IMCActivity extends Activity {
 				
 				//Ligação do float com a String do form
 				pesoFloat = Float.parseFloat(etPeso.getText().toString());
-				alturaFloat = Float.parseFloat(etAltura.getText().toString());
+				alturaFloat = Float.parseFloat(etAltura.getText().toString());	
 				
 				//calculo do IMC
-				resultadoFloat = pesoFloat / (alturaFloat * alturaFloat);
+				resultadoFloat = pesoFloat / (alturaFloat * alturaFloat);	
 				
 				
-				Intent a = new Intent(this, Valores.class);
-				a.putExtra("atributoPeso", pesoFloat);
-				a.putExtra("atributoAltura", alturaFloat);
-				a.putExtra("atributoIMC", resultadoFloat);
+				String pesoParam = etPeso.getText().toString();
+				String alturaParam = etAltura.getText().toString();				
+				
+				//metodo set, para setar o valor que estar em float na String				
+				etResultado.setText(String.valueOf(resultadoFloat));
+				
+				//conversão dos campos TextView para String
+				String resultadoParam = etResultado.getText().toString();
+						
+				
+				a.putExtra("atributoPeso", pesoParam);
+				a.putExtra("atributoAltura", alturaParam);
+				a.putExtra("atributoIMC", resultadoParam);
+				
 			    startActivity(a);
 				
-				//condições
+
+				
+				/* //condições
 				if (resultadoFloat < 18.5)
 				{
 					tvCondicao.setText("Você esta Abaixo do peso!");
@@ -88,10 +103,10 @@ public class IMCActivity extends Activity {
 				else 
 				{
 					tvCondicao.setText("Erro, entre com um valor!");
-				}
-				//metodo set, para setar o valor que estar em float na String				
-				etResultado.setText(String.valueOf(resultadoFloat));
-							
+				} */
+				
+
+				
 				
 			}
 
