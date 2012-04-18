@@ -1,6 +1,8 @@
 package br.com.imcProject;
 
 
+import java.text.DecimalFormat;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,7 +22,6 @@ public class IMCActivity extends Activity {
 	float pesoFloat, alturaFloat, resultadoFloat;
 	String texto;
 	Button btCalcular;
-	
 
 	Intent a = new Intent();
 	
