@@ -15,9 +15,12 @@ public class Valores extends Activity
 	float alturaFloat;
 	float resultadoFloat;
 	
+	 //Objs da classe DecimalFormat usados para formtar os campos numericos.
 	 final DecimalFormat formatoPeso = new DecimalFormat("00.0");
 	 final DecimalFormat formatoAltura = new DecimalFormat("0.00");
 	 final DecimalFormat formatoIMC = new DecimalFormat("00.00");
+	 
+	 //Objt da classe Intent que é usado para troca de telas 
 	 final Intent voltar = new Intent();
 	
     public void onCreate(Bundle savedInstanceState) 
@@ -28,6 +31,8 @@ public class Valores extends Activity
         
         //puxando a activity a
         Intent a = getIntent();
+        
+        //usando o objeto voltar, que vai this para 
         
 		voltar.setClass(this, IMCActivity.class);
 		
@@ -99,14 +104,12 @@ public class Valores extends Activity
         //Exibição
         tvAltura.setText("Altura: " + altura);
         tvPeso.setText("Peso: " + peso);
-        tvResultado.setText("IMC: " + imc);
-        
-
-
-        
+        tvResultado.setText("IMC: " + imc);       
+       
     }
     
     
+    //Evento do Click do Botão, quando clica volta Activity IMCActivity    
     public void volta(View q)
     {
 		startActivity(voltar); 
