@@ -37,7 +37,10 @@ public class IMCActivity extends Activity {
         etPeso = (EditText) findViewById(R.entrada.peso);
         etAltura = (EditText) findViewById(R.entrada.altura);
         etResultado = (EditText) findViewById(R.saida.resultado);
+        
         a.setClass(this, Valores.class);
+        
+        Intent voltar = getIntent();
     }
     public void Calcular(View v)
     {			

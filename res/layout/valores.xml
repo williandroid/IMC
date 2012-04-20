@@ -27,13 +27,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
+
    <Button
-        android:id="@+calculo/btVoltar"
-        android:layout_width="102dp"
-        android:layout_height="wrap_content"
-        android:text="Voltar" />
+       android:id="@+calculo/btVoltar"
+       android:layout_width="102dp"
+       android:layout_height="wrap_content"
+       android:onClick="volta"
+       android:text="Voltar" />
+
     <Button
-        android:id="@+calculo/btVoltar"
+        android:id="@+calculo/btGravar"
         android:layout_width="102dp"
         android:layout_height="wrap_content"
         android:text="Gravar" />

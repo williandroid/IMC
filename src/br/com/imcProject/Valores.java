@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class Valores extends Activity
 	 final DecimalFormat formatoPeso = new DecimalFormat("00.0");
 	 final DecimalFormat formatoAltura = new DecimalFormat("0.00");
 	 final DecimalFormat formatoIMC = new DecimalFormat("00.00");
+	 final Intent voltar = new Intent();
 	
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -27,6 +29,8 @@ public class Valores extends Activity
         //puxando a activity a
         Intent a = getIntent();
         
+		voltar.setClass(this, IMCActivity.class);
+		
         //Puxando os valores da classe pai
         String peso = a.getStringExtra("atributoPeso");
     	String altura = a.getStringExtra("atributoAltura");
@@ -97,6 +101,15 @@ public class Valores extends Activity
         tvPeso.setText("Peso: " + peso);
         tvResultado.setText("IMC: " + imc);
         
+
+
+        
+    }
+    
+    
+    public void volta(View q)
+    {
+		startActivity(voltar); 
     }
     
 }
