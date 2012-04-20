@@ -24,7 +24,7 @@ public class SqlLite
 		//banco = new SQLiteDatabase()
 		try
 		{
-		banco = ctx.openOrCreateDatabase(NOME_BANCO, Context.MODE_PRIVATE, null);
+			banco = ctx.openOrCreateDatabase(NOME_BANCO, Context.MODE_PRIVATE, null);		
 		}
 		catch(SQLException e)
 		{
@@ -37,28 +37,30 @@ public class SqlLite
 	{
 		try{
 				banco.execSQL("CREATE TABLE IF NOT EXISTS "+ NOME_TABELA + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-				"autor TEXT NOT NULL, data TEXT NOT NULL, peso REAL NOT NULL, altura REAL NOT NULL, imc REAL NOT NULL)");
+				" autor TEXT NOT NULL, data TEXT NOT NULL, peso REAL NOT NULL, altura REAL NOT NULL, imc REAL NOT NULL)");				
 			}
 			catch(SQLException e)
 			{
-				
+				Mensagem("Erro no Banco", "Não foi possivel criar o BD", ctx);
 			}
 		}	
 		
 	
 	//Inseri dados nos capos da tabela	
-	public static void inserir(Context ctx, String autor, String data, Float peso, Float altura, Float imc)
+	public static void inserir(Context ctx, Float peso, Float altura, Float imc)
 	{
 		criarBanco(ctx);
 		criarTabela(ctx);
 		try
 		{
-			banco.execSQL("INSERT INTO " + NOME_TABELA + " (autor, data, peso, altura, imc) VALUES ("+ autor + ", "+ data +
-				", "+ peso + ", "+ altura + ", "+imc+")");
+			banco.execSQL("INSERT INTO " + NOME_TABELA + " (autor, data, peso, altura, imc) VALUES ('"+ NOME_AUTOR +"', '" + DATA_INSERCAO + "','" + peso +
+					"','" + altura + "','"+ imc + "')");
+			
+			Mensagem("STATUS REGISTRO", "Registro Gravado com Sucesso", ctx);
 		}
 		catch(SQLException e)
 		{
-			
+			Mensagem("STATUS REGISTRO", "Não foi possivel Gravar no BD", ctx);
 		}
 		finally
 		{

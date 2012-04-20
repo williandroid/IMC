@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-
+import android.database.Cursor;
 public class IMCActivity extends Activity {
 	
 	//variaveis
@@ -32,7 +32,7 @@ public class IMCActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        //conversão
+        //conversão da varialvel busca os campos xml
         tvCondicao = (TextView) findViewById(R.texto.condicao);
         etPeso = (EditText) findViewById(R.entrada.peso);
         etAltura = (EditText) findViewById(R.entrada.altura);

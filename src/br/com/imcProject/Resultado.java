@@ -2,11 +2,19 @@ package br.com.imcProject;
 
 public class Resultado {
 	
+	private int _id;
 	private String autor;
 	private String data;
 	private Float peso;
 	private Float altura;
 	private Float imc;
+	
+	public int _id() {
+		return _id;
+	}
+	public void set_id(int _id) {
+		this._id = _id;
+	}
 	
 	public String getAutor() {
 		return autor;

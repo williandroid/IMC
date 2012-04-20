@@ -115,4 +115,14 @@ public class Valores extends Activity
 		startActivity(voltar); 
     }
     
+    
+    //Evento do Click do Botão, quando clica Grava no BD volta para principal  
+    public void grava(View v)
+    {
+    	SqlLite.inserir(this, pesoFloat, alturaFloat, resultadoFloat);
+
+    }
+    
+    
+    
 }

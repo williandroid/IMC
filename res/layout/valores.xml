@@ -39,7 +39,7 @@
         android:id="@+calculo/btGravar"
         android:layout_width="102dp"
         android:layout_height="wrap_content"
+        android:onClick="grava"
         android:text="Gravar" />
-   
 
 </LinearLayout>
