@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class Valores extends Activity 
@@ -125,13 +124,7 @@ public class Valores extends Activity
     	//startActivity(i);
 
     }
-
-
-	private void setClass(Valores valores, Class<Ficheiros> class1) {
-		// TODO Auto-generated method stub
-		
-	}
-    
+  
     
     
 }
