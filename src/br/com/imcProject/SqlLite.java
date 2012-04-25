@@ -28,7 +28,7 @@ public class SqlLite
 		}
 		catch(SQLException e)
 		{
-			
+			Mensagem("Erro no Banco", "Não foi possivel criar o BD", ctx);
 		}
 			
 	}
@@ -36,14 +36,47 @@ public class SqlLite
 	public static void criarTabela(Context ctx)
 	{
 		try{
-				banco.execSQL("CREATE TABLE IF NOT EXISTS "+ NOME_TABELA + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-				" autor TEXT NOT NULL, data TEXT NOT NULL, peso REAL NOT NULL, altura REAL NOT NULL, imc REAL NOT NULL)");				
+				banco.execSQL("CREATE TABLE IF NOT EXISTS "+ NOME_TABELA + " (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+				" autor TEXT, data TEXT, peso REAL NOT NULL, altura REAL NOT NULL, imc REAL NOT NULL)");				
 			}
 			catch(SQLException e)
 			{
 				Mensagem("Erro no Banco", "Não foi possivel criar o BD", ctx);
 			}
 		}	
+	
+	
+	
+	//Realiza Busca
+	public static ArrayList<Resultado> busca(Context ctx)
+	{
+		criarBanco(ctx);
+		criarTabela(ctx);
+			ArrayList<Resultado> busca = new ArrayList<Resultado>();
+			Cursor resposta = banco.query(NOME_TABELA, new String[] {"_id",  "data", "peso", "altura", "imc"},
+					"autor=?", new String[]{NOME_AUTOR}, null, null, null);
+			if (resposta.getCount()> 0)
+			{
+				int count = 0;
+				resposta.moveToFirst();
+				while(count < resposta.getCount())
+				{
+					Resultado result = new Resultado();
+					result.setAutor(resposta.getString(1));
+					result.setData(resposta.getString(2));
+					result.setPeso(resposta.getFloat(3));
+					result.setAltura(resposta.getFloat(4));
+					result.setImc(resposta.getFloat(5));
+					busca.add(result);
+					resposta.moveToNext();
+					count++;
+				}	
+				resposta.close();
+				banco.close();
+			}
+			
+			return busca;
+	   }
 		
 	
 	//Inseri dados nos capos da tabela	
@@ -67,47 +100,7 @@ public class SqlLite
 			banco.close();
 		}
 	}
-	
-	
-	//Realiza Busca
-	public static ArrayList<Resultado> busca(Context ctx)
-	{
-		criarBanco(ctx);
-		criarTabela(ctx);
-		try
-		{
-			ArrayList<Resultado> busca = new ArrayList<Resultado>();
-			busca = null; 
-			Cursor resposta = banco.query(NOME_TABELA, new String[] {"_id",  "data", "peso", "altura", "imc"},
-					"autor=?", new String[]{NOME_AUTOR}, null, null, null);
-			if (resposta.getCount()> 0)
-			{
-				int count = 1;
-				resposta.moveToFirst();
-				while(count < resposta.getCount())
-				{
-					Resultado result = new Resultado();
-					result.setAutor(resposta.getString(1));
-					result.setData(resposta.getString(2));
-					result.setPeso(resposta.getFloat(3));
-					result.setAltura(resposta.getFloat(4));
-					result.setImc(resposta.getFloat(5));
-					busca.add(result);
-					resposta.moveToNext();
-					count++;
-				}	
-			}
-		}
-		catch(Exception e)
-		{
-			Mensagem("NÂO ENCONTRADO", "0 Registros Encontrados", ctx);
-		}
-		finally
-		{
-			banco.close();
-		}
-		return busca(null);
-	}
+
 	
 	public static void Mensagem(String tituloAlerta, String mensagemAlerta, Context ctx)
 	{

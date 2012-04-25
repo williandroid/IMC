@@ -14,23 +14,21 @@ public class Ficheiros extends ListActivity
 	 ArrayList<HashMap<String,String>> lista = new ArrayList<HashMap<String,String>>();
 	 ArrayList<Resultado> calculoArray = new ArrayList<Resultado>();
 	 
-
-
-	  
-	  public void onCreate(Bundle savedInstanceState) {
+	  public void onCreate(Bundle savedInstanceState) 
+	  {
 	        super.onCreate(savedInstanceState);
 			  BuscaEcarregaDados();
 			  String[] from = new String[]{"data", "imc"};
 			  int [] to = new int[]{android.R.id.text1, android.R.id.text2}; 
 			  int layoutNativo = android.R.layout.two_line_list_item;
 			  setListAdapter(new SimpleAdapter(this, lista, layoutNativo, from, to));
-			  Intent i = getIntent();
 	                
 	  }
 
-	  protected void onListItemClick(ListView l, View v, int position, long id) {
-			super.onListItemClick(l, v, position, id);
-				Resultado result = calculoArray.get(position);
+	  protected void onListItemClick(ListView lView, View v, int posicao, long id) 
+	  {
+			super.onListItemClick(lView, v, posicao, id);
+				Resultado result = calculoArray.get(posicao);
 				SqlLite.Mensagem("Willian", "_id: "+result._id()+"\n"+
 								 "Peso: " +result.getPeso()+"\n"+
 								 "Altura: " +result.getAltura()+"\n", this);			
