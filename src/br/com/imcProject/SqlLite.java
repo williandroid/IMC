@@ -74,29 +74,39 @@ public class SqlLite
 	{
 		criarBanco(ctx);
 		criarTabela(ctx);
-		ArrayList<Resultado> busca = new ArrayList<Resultado>();
-		busca = null; 
-		Cursor resposta = banco.query(NOME_TABELA, new String[] {"_id",  "data", "peso", "altura", "imc"},
-				"autor=?", new String[]{NOME_AUTOR}, null, null, null);
-		if (resposta.getCount()> 0)
+		try
 		{
-			int count = 1;
-			resposta.moveToFirst();
-			while(count < resposta.getCount())
+			ArrayList<Resultado> busca = new ArrayList<Resultado>();
+			busca = null; 
+			Cursor resposta = banco.query(NOME_TABELA, new String[] {"_id",  "data", "peso", "altura", "imc"},
+					"autor=?", new String[]{NOME_AUTOR}, null, null, null);
+			if (resposta.getCount()> 0)
 			{
-				Resultado result = new Resultado();
-				result.setAutor(resposta.getString(1));
-				result.setData(resposta.getString(2));
-				result.setPeso(resposta.getFloat(3));
-				result.setAltura(resposta.getFloat(4));
-				result.setImc(resposta.getFloat(5));
-				busca.add(result);
-				resposta.moveToNext();
-				count++;
-			}	
+				int count = 1;
+				resposta.moveToFirst();
+				while(count < resposta.getCount())
+				{
+					Resultado result = new Resultado();
+					result.setAutor(resposta.getString(1));
+					result.setData(resposta.getString(2));
+					result.setPeso(resposta.getFloat(3));
+					result.setAltura(resposta.getFloat(4));
+					result.setImc(resposta.getFloat(5));
+					busca.add(result);
+					resposta.moveToNext();
+					count++;
+				}	
+			}
 		}
-		
-		return busca;
+		catch(Exception e)
+		{
+			Mensagem("NÂO ENCONTRADO", "0 Registros Encontrados", ctx);
+		}
+		finally
+		{
+			banco.close();
+		}
+		return busca(null);
 	}
 	
 	public static void Mensagem(String tituloAlerta, String mensagemAlerta, Context ctx)

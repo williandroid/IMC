@@ -1,19 +1,16 @@
 package br.com.imcProject;
 
 
-import java.text.DecimalFormat;
+
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.Cursor;
 public class IMCActivity extends Activity {
 	
 	//variaveis
@@ -40,7 +37,7 @@ public class IMCActivity extends Activity {
         
         a.setClass(this, Valores.class);
         
-        Intent voltar = getIntent();
+        //Intent voltar = getIntent();
     }
     public void Calcular(View v)
     {			

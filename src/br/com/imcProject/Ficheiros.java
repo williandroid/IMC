@@ -3,6 +3,7 @@ package br.com.imcProject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -13,6 +14,9 @@ public class Ficheiros extends ListActivity
 	 ArrayList<HashMap<String,String>> lista = new ArrayList<HashMap<String,String>>();
 	 ArrayList<Resultado> calculoArray = new ArrayList<Resultado>();
 	 
+
+
+	  
 	  public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 			  BuscaEcarregaDados();
@@ -20,6 +24,7 @@ public class Ficheiros extends ListActivity
 			  int [] to = new int[]{android.R.id.text1, android.R.id.text2}; 
 			  int layoutNativo = android.R.layout.two_line_list_item;
 			  setListAdapter(new SimpleAdapter(this, lista, layoutNativo, from, to));
+			  Intent i = getIntent();
 	                
 	  }
 

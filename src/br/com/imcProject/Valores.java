@@ -22,6 +22,7 @@ public class Valores extends Activity
 	 
 	 //Objt da classe Intent que é usado para troca de telas 
 	 final Intent voltar = new Intent();
+ 	 final Intent i = new Intent(); 
 	
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -119,9 +120,17 @@ public class Valores extends Activity
     //Evento do Click do Botão, quando clica Grava no BD volta para principal  
     public void grava(View v)
     {
-    	SqlLite.inserir(this, pesoFloat, alturaFloat, resultadoFloat);
+    	SqlLite.inserir(this, pesoFloat, alturaFloat, resultadoFloat);   	
+    	//setClass(this, Ficheiros.class);
+    	//startActivity(i);
 
     }
+
+
+	private void setClass(Valores valores, Class<Ficheiros> class1) {
+		// TODO Auto-generated method stub
+		
+	}
     
     
     

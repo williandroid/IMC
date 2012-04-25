@@ -33,7 +33,7 @@
        android:layout_width="102dp"
        android:layout_height="wrap_content"
        android:onClick="volta"
-       android:text="Voltar" />
+       android:text="Novo IMC" />
 
     <Button
         android:id="@+calculo/btGravar"
