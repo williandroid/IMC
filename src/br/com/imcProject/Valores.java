@@ -32,8 +32,7 @@ public class Valores extends Activity
         //puxando a activity a
         Intent a = getIntent();
         
-        //usando o objeto voltar, que vai this para 
-        
+        //usando o objeto voltar, que vai this para         
 		voltar.setClass(this, IMCActivity.class);
 		
         //Puxando os valores da classe pai
@@ -104,7 +103,9 @@ public class Valores extends Activity
         //Exibição
         tvAltura.setText("Altura: " + altura);
         tvPeso.setText("Peso: " + peso);
-        tvResultado.setText("IMC: " + imc);       
+        tvResultado.setText("IMC: " + imc);   
+        
+        
        
     }
     

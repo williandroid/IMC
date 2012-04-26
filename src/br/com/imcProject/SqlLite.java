@@ -28,7 +28,7 @@ public class SqlLite
 		}
 		catch(SQLException e)
 		{
-			Mensagem("Erro no Banco", "Não foi possivel criar o BD", ctx);
+			
 		}
 			
 	}
@@ -41,7 +41,6 @@ public class SqlLite
 			}
 			catch(SQLException e)
 			{
-				Mensagem("Erro no Banco", "Não foi possivel criar o BD", ctx);
 			}
 		}	
 	
@@ -62,11 +61,12 @@ public class SqlLite
 				while(count < resposta.getCount())
 				{
 					Resultado result = new Resultado();
-					result.setAutor(resposta.getString(1));
-					result.setData(resposta.getString(2));
-					result.setPeso(resposta.getFloat(3));
-					result.setAltura(resposta.getFloat(4));
-					result.setImc(resposta.getFloat(5));
+					result.set_id(resposta.getInt(0));
+					//result.setAutor(resposta.getString(1));
+					result.setData(resposta.getString(1));
+					result.setPeso(resposta.getFloat(2));
+					result.setAltura(resposta.getFloat(3));
+					result.setImc(resposta.getFloat(4));
 					busca.add(result);
 					resposta.moveToNext();
 					count++;

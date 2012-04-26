@@ -13,6 +13,7 @@ public class Ficheiros extends ListActivity
 	 ArrayList<HashMap<String,String>> lista = new ArrayList<HashMap<String,String>>();
 	 ArrayList<Resultado> calculoArray = new ArrayList<Resultado>();
 	 
+	 
 	  public void onCreate(Bundle savedInstanceState) 
 	  {
 	        super.onCreate(savedInstanceState);
