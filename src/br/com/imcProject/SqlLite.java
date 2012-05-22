@@ -1,6 +1,8 @@
 package br.com.imcProject;
 
+
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -10,11 +12,20 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class SqlLite 
 {
+	static final Calendar c = Calendar.getInstance();
+	static final int dia = c.get(Calendar.DAY_OF_MONTH);
+	static final int mes = c.get(Calendar.MONTH)+1;
+	static final int ano = c.get(Calendar.YEAR);
+
+	static final String d = String.valueOf(dia);
+	static final String m = String.valueOf(mes);
+	static final String a = String.valueOf(ano);
 	
+		
 	static final String NOME_BANCO = "androidimc";
 	static final String NOME_TABELA = "historico";
 	static final String NOME_AUTOR = "willian";
-	static final String DATA_INSERCAO = "25";
+	static final String DATA_INSERCAO = d + "/" + m + "/" + a;
 	static SQLiteDatabase banco;
 	
 	
