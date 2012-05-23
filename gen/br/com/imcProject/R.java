@@ -23,12 +23,18 @@ public final class R {
         public static final int peso=0x7f060000;
     }
     public static final class id {
-        public static final int historico1=0x7f050000;
-        public static final int listView=0x7f050001;
-        public static final int tvAltura=0x7f050003;
-        public static final int tvCondicao=0x7f050005;
-        public static final int tvPeso=0x7f050002;
-        public static final int tvResultado=0x7f050004;
+        public static final int historico1=0x7f050003;
+        public static final int historico3=0x7f050004;
+        public static final int imageButton1=0x7f050005;
+        public static final int imageButton2=0x7f050006;
+        public static final int imageButton3=0x7f050007;
+        public static final int imageButton4=0x7f050000;
+        public static final int imageButton5=0x7f050001;
+        public static final int imageButton6=0x7f050002;
+        public static final int tvAltura=0x7f050009;
+        public static final int tvCondicao=0x7f05000b;
+        public static final int tvPeso=0x7f050008;
+        public static final int tvResultado=0x7f05000a;
     }
     public static final class layout {
         public static final int ficheiros=0x7f030000;
